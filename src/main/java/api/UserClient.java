@@ -26,7 +26,7 @@ public class UserClient {
     }
 
     @Step("Авторизовать пользователя")
-    public static Response loginUser(Credentials credentials) {
+    public static String loginUser(Credentials credentials) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
@@ -34,7 +34,12 @@ public class UserClient {
                 .contentType(ContentType.JSON)
                 .body(credentials)
                 .when()
-                .post(USER_LOGIN_PATH);
+                .post(USER_LOGIN_PATH)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .extract()
+                .path("accessToken").toString();
     }
 
     @Step("Удалить пользователя")

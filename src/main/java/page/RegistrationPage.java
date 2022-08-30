@@ -51,7 +51,7 @@ public class RegistrationPage {
     }
 
     @Step("заполнить форму регистрации пользователя")
-    public void fulfillLoginForm(String name, String email, String password) {
+    public void fulfillRegisterForm(String name, String email, String password) {
         setNameField(name);
         setEmailField(email);
         setPasswordField(password);

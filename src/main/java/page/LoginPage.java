@@ -31,6 +31,9 @@ public class LoginPage {
     @FindBy(how = How.XPATH, using = ".//a[@href='/forgot-password']")
     private SelenideElement resetPasswordButton;
 
+    @FindBy(how = How.XPATH, using = ".//h2[.='Вход']")
+    private SelenideElement headerText;
+
     @Step("клик на логотип")
     public void clickOnLogo() {
         logo.click();
@@ -71,5 +74,10 @@ public class LoginPage {
         setEmailField(email);
         setPasswordField(password);
         clickOnEnterButton();
+    }
+
+    @Step("получение текста заголовка 'Вход'")
+    public String getHeaderText() {
+        return headerText.getText();
     }
 }
