@@ -1,6 +1,7 @@
 package page;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -27,23 +28,38 @@ public class HomePage {
     private SelenideElement sauceOption;
 
     @FindBy(how = How.XPATH, using = ".//span[text()='Начинки']")
-    private SelenideElement ingredientsOption;
+    private SelenideElement fillingOption;
 
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти в аккаунт']")
     private SelenideElement loginButton;
 
-    //метод для клика на кнопку "Личный кабинет"
+    @Step("клик на кнопку 'Личный кабинет'")
     public LoginPage clickPrivateAccountButton() {
         privateAccountButton.click();
         LoginPage loginPage = page(LoginPage.class);
         return loginPage;
     }
 
-    //метод для клика на кнопку "Войти в аккаунт"
+    @Step("клик на кнопку 'Войти в аккаунт'")
     public LoginPage clickLoginButton() {
         loginButton.click();
         LoginPage loginPage = page(LoginPage.class);
         return loginPage;
+    }
+
+    @Step("клик на раздел 'Булки'")
+    public void selectBunOption() {
+        bunOption.click();
+    }
+
+    @Step("клик на раздел 'Соусы'")
+    public void selectSauceOption() {
+        sauceOption.click();
+    }
+
+    @Step("клик на раздел 'Начинки'")
+    public void selectFillingOption() {
+        fillingOption.click();
     }
 
 }
