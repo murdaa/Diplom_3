@@ -22,7 +22,7 @@ public class RegistrationPage {
     @FindBy(how = How.XPATH, using = ".//a[@href='/login']")
     private SelenideElement enterButton;
 
-    @FindBy(how = How.XPATH, using = ".//p[@class='input__error text_type_main-default']")
+    @FindBy(how = How.XPATH, using = ".//p[text()='Некорректный пароль']")
     private SelenideElement errorText;
 
     @Step("ввести значение в поле 'Имя'")
@@ -56,6 +56,11 @@ public class RegistrationPage {
         setEmailField(email);
         setPasswordField(password);
         clickOnRegistrationButton();
+    }
+
+    @Step("получение текста ошибки 'Некорректный пароль'")
+    public String getErrorText() {
+        return errorText.getText();
     }
 
 }
