@@ -39,7 +39,7 @@ public class RegistrationInvalidTest {
     @Description("Проверить, что с некорректным паролем не произойдет регистрации нового пользователя")
     public void invalidRegistrationTest() {
         homePage.clickLoginButton();
-        loginPage.clickOnRegisterButton();
+        loginPage.clickRegisterButton();
         registrationPage.fulfillRegisterForm(user.getName(),
                 user.getEmail(), "12345");
         String expected = "Некорректный пароль";

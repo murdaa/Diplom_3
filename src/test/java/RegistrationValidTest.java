@@ -45,7 +45,7 @@ public class RegistrationValidTest {
     @Description("Проверить успешную регистрацию нового пользователя")
     public void validRegistrationTest() {
         homePage.clickLoginButton();
-        loginPage.clickOnRegisterButton();
+        loginPage.clickRegisterButton();
         registrationPage.fulfillRegisterForm(user.getName(),
                 user.getEmail(), user.getPassword());
         String expected = "Вход";

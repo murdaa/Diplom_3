@@ -14,7 +14,7 @@ public class UserClient {
     private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
     @Step("Создать пользователя")
-    public static Response create(User user) {
+    public static String create(User user) {
         return given()
                 .log().all()
                 .baseUri(BASE_URL)
@@ -22,7 +22,12 @@ public class UserClient {
                 .contentType(ContentType.JSON)
                 .body(user)
                 .when()
-                .post(USER_PATH);
+                .post(USER_PATH)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .extract()
+                .path("accessToken").toString();
     }
 
     @Step("Авторизовать пользователя")

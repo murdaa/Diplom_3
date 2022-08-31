@@ -16,13 +16,13 @@ public class LoginPage {
     @FindBy(how = How.CLASS_NAME, using = "AppHeader_header__logo__2D0X2")
     private SelenideElement logo;
 
-    @FindBy(how = How.XPATH, using = ".//label[.='Email']")
+    @FindBy(how = How.CSS, using = "input[name='name']")
     private SelenideElement emailField;
 
-    @FindBy(how = How.XPATH, using = ".//input[@name='Пароль']")
+    @FindBy(how = How.CSS, using = "input[name='Пароль']")
     private SelenideElement passwordField;
 
-    @FindBy(how = How.XPATH, using = ".//button[.='Войти']")
+    @FindBy(how = How.XPATH, using = ".//button[text()='Войти']")
     private SelenideElement enterButton;
 
     @FindBy(how = How.XPATH, using = ".//a[@href='/register']")
@@ -35,27 +35,27 @@ public class LoginPage {
     private SelenideElement headerText;
 
     @Step("клик на логотип")
-    public void clickOnLogo() {
+    public void clickLogo() {
         logo.click();
     }
 
     @Step("клик на 'Конструктор'")
-    public void clickOnConstructorButton() {
+    public void clickConstructorButton() {
         constructorButton.click();
     }
 
     @Step("клик на кнопку 'Войти'")
-    public void clickOnEnterButton() {
+    public void clickEnterButton() {
         enterButton.click();
     }
 
     @Step("клик на кнопку 'Зарегистрироваться'")
-    public void clickOnRegisterButton() {
+    public void clickRegisterButton() {
         registerButton.click();
     }
 
     @Step("клик на кнопку 'Восстановить пароль'")
-    public void clickOnResetPasswordButton() {
+    public void clickResetPasswordButton() {
         resetPasswordButton.click();
     }
 
@@ -70,10 +70,10 @@ public class LoginPage {
     }
 
     @Step("заполнить форму авторизации пользователя")
-    public void fulfillLoginForm(String email, String password) {
+    public void fulfilLoginForm(String email, String password) {
         setEmailField(email);
         setPasswordField(password);
-        clickOnEnterButton();
+        clickEnterButton();
     }
 
     @Step("получение текста заголовка 'Вход'")
