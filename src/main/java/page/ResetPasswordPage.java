@@ -31,7 +31,7 @@ public class ResetPasswordPage {
     }
 
     @Step("клик на кнопку 'Восстановить'")
-    public void clickOnResetButton() {
+    public void clickResetButton() {
         resetButton.click();
     }
 
@@ -39,6 +39,11 @@ public class ResetPasswordPage {
     public void resetPassword(String email) {
         setEmailField(email);
         resetButton.click();
+    }
+
+    @Step("клик на кнопку 'Войти'")
+    public void clickEnterButton() {
+        enterButton.click();
     }
 
     @Step("ввести значение в поле 'Пароль'")
@@ -52,7 +57,7 @@ public class ResetPasswordPage {
     }
 
     @Step("клик на кнопку 'Сохранить'")
-    public void clickOnSaveButton() {
+    public void clickSaveButton() {
         saveButton.click();
     }
 }

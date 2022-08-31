@@ -41,12 +41,12 @@ public class RegistrationPage {
     }
 
     @Step("клик на кнопку 'Зарегистрироваться'")
-    public void clickOnRegistrationButton() {
+    public void clickRegistrationButton() {
         registerButton.click();
     }
 
     @Step("клик на кнопку 'Войти'")
-    public void clickOnEnterButton() {
+    public void clickEnterButton() {
         enterButton.click();
     }
 
@@ -55,7 +55,7 @@ public class RegistrationPage {
         setNameField(name);
         setEmailField(email);
         setPasswordField(password);
-        clickOnRegistrationButton();
+        clickRegistrationButton();
     }
 
     @Step("получение текста ошибки 'Некорректный пароль'")
