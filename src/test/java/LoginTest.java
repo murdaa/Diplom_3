@@ -10,8 +10,7 @@ import org.junit.Test;
 import page.*;
 
 import static api.UserClient.*;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LoginTest {
 
@@ -42,6 +41,7 @@ public class LoginTest {
     public void tearDown() {
         accountPage.clickExitButton();
         deleteUser(accessToken);
+        closeWindow();
     }
 
     @Test

@@ -56,5 +56,4 @@ public class AccountPage {
     public void clickConstructorButton() {
         constructorButton.click();
     }
-
 }

@@ -11,10 +11,9 @@ import page.*;
 
 import static api.UserClient.create;
 import static api.UserClient.deleteUser;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 
-public class NavigationTest {
+public class NavigationToPagesTest {
 
     HomePage homePage = page(HomePage.class);
     LoginPage loginPage = page(LoginPage.class);
@@ -42,6 +41,7 @@ public class NavigationTest {
     @After
     public void tearDown() {
         deleteUser(accessToken);
+        closeWindow();
     }
 
     @Test

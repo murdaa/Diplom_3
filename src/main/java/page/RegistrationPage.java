@@ -62,5 +62,4 @@ public class RegistrationPage {
     public String getErrorText() {
         return errorText.getText();
     }
-
 }

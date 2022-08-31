@@ -36,6 +36,15 @@ public class HomePage {
     @FindBy(how = How.XPATH, using = ".//h1[.='Соберите бургер']")
     private SelenideElement headerText;
 
+    @FindBy(how = How.XPATH, using = ".//h2[.='Булки']")
+    private SelenideElement headerBunText;
+
+    @FindBy(how = How.XPATH, using = ".//h2[.='Соусы']")
+    private SelenideElement headerSauceText;
+
+    @FindBy(how = How.XPATH, using = ".//h2[.='Начинки']")
+    private SelenideElement headerFillingText;
+
     @Step("клик на кнопку 'Личный кабинет'")
     public LoginPage clickPrivateAccountButton() {
         privateAccountButton.click();
@@ -68,5 +77,20 @@ public class HomePage {
     @Step("получить текст заголовка 'Соберите бургер'")
     public String getHeaderText() {
         return headerText.getText();
+    }
+
+    @Step("получить текст заголовка 'Булки'")
+    public String getBunHeaderText() {
+        return headerBunText.getText();
+    }
+
+    @Step("получить текст заголовка 'Соусы'")
+    public String getSauceHeaderText() {
+        return headerSauceText.getText();
+    }
+
+    @Step("получить текст заголовка 'Начинки'")
+    public String getFillingHeaderText() {
+        return headerFillingText.getText();
     }
 }

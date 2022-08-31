@@ -38,6 +38,7 @@ public class RegistrationValidTest {
     public void tearDown() {
         String accessToken = loginUser(new Credentials(user.getEmail(), user.getPassword()));
         deleteUser(accessToken);
+        closeWindow();
     }
 
     @Test

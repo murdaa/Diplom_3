@@ -3,6 +3,7 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +11,7 @@ import page.HomePage;
 import page.LoginPage;
 import page.RegistrationPage;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationInvalidTest {
 
@@ -33,6 +33,10 @@ public class RegistrationInvalidTest {
         open(URL_HOME_PAGE);
     }
 
+    @After
+    public void tearDown() {
+        closeWindow();
+    }
 
     @Test
     @DisplayName("Тест безуспешной регистрации")
