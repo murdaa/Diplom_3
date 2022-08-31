@@ -1,34 +1,26 @@
-import api.Credentials;
 import api.User;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import page.HomePage;
 import page.LoginPage;
 import page.RegistrationPage;
 
-import static api.UserClient.deleteUser;
-import static api.UserClient.loginUser;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
 
-public class RegistrationTest {
+public class RegistrationInvalidTest {
 
     HomePage homePage = page(HomePage.class);
     LoginPage loginPage = page(LoginPage.class);
     RegistrationPage registrationPage = page(RegistrationPage.class);
-
     User user = new User(RandomStringUtils.randomAlphanumeric(5) + "@yandex.ru",
             RandomStringUtils.randomAlphanumeric(8),
             RandomStringUtils.randomAlphanumeric(8));
-
-    @BeforeClass
-    public static void prerequisites() {
-        final String URL_HOME_PAGE = "https://stellarburgers.nomoreparties.site/";
-        open(URL_HOME_PAGE);
-    }
-
 
     @Before
     public void setUp() {
@@ -37,26 +29,21 @@ public class RegistrationTest {
         //System.setProperty("webdriver.chrome.driver", "C:\\yandexdriver\\yandexdriver.exe");
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 10000;
+        final String URL_HOME_PAGE = "https://stellarburgers.nomoreparties.site/";
+        open(URL_HOME_PAGE);
     }
 
-    @After
-    public void tearDown() {
-        String accessToken = loginUser(new Credentials(user.getEmail(), user.getPassword()));
-        deleteUser(accessToken);
-    }
 
     @Test
-    @DisplayName("Test of valid registration")
-    @Description("To verify a valid registration of new user")
-    public void validRegistrationTest() {
+    @DisplayName("Test of invalid registration")
+    @Description("To verify an invalid registration of new user")
+    public void invalidRegistrationTest() {
         homePage.clickLoginButton();
         loginPage.clickOnRegisterButton();
         registrationPage.fulfillRegisterForm(user.getName(),
-                user.getEmail(), user.getPassword());
-        String expected = "Вход";
-        String actual = loginPage.getHeaderText();
+                user.getEmail(), "12345");
+        String expected = "Некорректный пароль";
+        String actual = registrationPage.getErrorText();
         Assert.assertEquals(actual, expected);
     }
-
-
 }
