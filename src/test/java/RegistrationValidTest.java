@@ -41,8 +41,8 @@ public class RegistrationValidTest {
     }
 
     @Test
-    @DisplayName("Test of valid registration")
-    @Description("To verify a valid registration of new user")
+    @DisplayName("Тест успешной регистрации")
+    @Description("Проверить успешную регистрацию нового пользователя")
     public void validRegistrationTest() {
         homePage.clickLoginButton();
         loginPage.clickOnRegisterButton();

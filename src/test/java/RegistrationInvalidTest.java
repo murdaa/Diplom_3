@@ -35,8 +35,8 @@ public class RegistrationInvalidTest {
 
 
     @Test
-    @DisplayName("Test of invalid registration")
-    @Description("To verify an invalid registration of new user")
+    @DisplayName("Тест безуспешной регистрации")
+    @Description("Проверить, что с некорректным паролем не произойдет регистрации нового пользователя")
     public void invalidRegistrationTest() {
         homePage.clickLoginButton();
         loginPage.clickOnRegisterButton();
