@@ -40,7 +40,7 @@ public class LoginTest {
 
     @After
     public void tearDown() {
-        accountPage.clickOnExitButton();
+        accountPage.clickExitButton();
         deleteUser(accessToken);
     }
 

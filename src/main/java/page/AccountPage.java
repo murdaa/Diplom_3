@@ -7,6 +7,15 @@ import org.openqa.selenium.support.How;
 
 public class AccountPage {
 
+    @FindBy(how = How.XPATH, using = ".//p[text()='Конструктор']")
+    private SelenideElement constructorButton;
+
+    @FindBy(how = How.XPATH, using = ".//p[text()='Лента Заказов']")
+    private SelenideElement ordersFeedButton;
+
+    @FindBy(how = How.CLASS_NAME, using = "AppHeader_header__logo__2D0X2")
+    private SelenideElement logo;
+
     @FindBy(how = How.XPATH, using = ".//input[@name='Name']")
     private SelenideElement nameField;
 
@@ -29,7 +38,7 @@ public class AccountPage {
     private SelenideElement orderHistoryButton;
 
     @Step("клик на кнопку 'Выход'")
-    public void clickOnExitButton() {
+    public void clickExitButton() {
         exitButton.click();
     }
 
@@ -37,4 +46,15 @@ public class AccountPage {
     public String getTextFromOrderHistoryButton() {
         return orderHistoryButton.getText();
     }
+
+    @Step("клик на логотип")
+    public void clickLogo() {
+        logo.click();
+    }
+
+    @Step("клик на 'Конструктор'")
+    public void clickConstructorButton() {
+        constructorButton.click();
+    }
+
 }

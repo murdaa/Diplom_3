@@ -33,6 +33,9 @@ public class HomePage {
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти в аккаунт']")
     private SelenideElement loginButton;
 
+    @FindBy(how = How.XPATH, using = ".//h1[.='Соберите бургер']")
+    private SelenideElement headerText;
+
     @Step("клик на кнопку 'Личный кабинет'")
     public LoginPage clickPrivateAccountButton() {
         privateAccountButton.click();
@@ -62,4 +65,8 @@ public class HomePage {
         fillingOption.click();
     }
 
+    @Step("получить текст заголовка 'Соберите бургер'")
+    public String getHeaderText() {
+        return headerText.getText();
+    }
 }
